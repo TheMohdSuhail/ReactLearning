@@ -1,6 +1,6 @@
 import React from 'react';
 import Instructions from '../Instructions/Instructions.js';
-import AnimalCard from '../AnimalCard.js';
+import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
 import './App.css';
 
@@ -58,9 +58,9 @@ function App() {
         diet={animal.diet}
         key={animal.name}
         name={animal.name}
+        size={animal.size}
         scientificName={animal.scientificName}
         showAdditional={showAdditional}
-        size={animal.size}
         />
       ))}
     </div>

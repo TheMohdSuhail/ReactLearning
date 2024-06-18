@@ -1,6 +1,7 @@
 import React from "react";
 import './AnimalCard.css';
 import PropTypes from 'prop-types';
+import AnimalDetails from "../AnimalDetails/AnimalDetails";
 
 
 export default function AnimalCard({
@@ -9,15 +10,18 @@ export default function AnimalCard({
     name,
     scientificName,
     showAdditional,
-    size
+    size,
+    ...props
 }) {
 
 
     return (
         <div className="animal-wrapper">
             <h2>{name}</h2>
-            <h3>{scientificName}</h3>
+            {/* <h3>{scientificName}</h3> */}
             <h3>{size}</h3>
+            <AnimalDetails
+            diet={diet} />
             <div>{diet.join(', ')},</div>
             <button onClick={() => showAdditional(additional)}>More Info</button>
 
