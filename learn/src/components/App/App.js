@@ -2,7 +2,7 @@ import React from 'react';
 import Instructions from '../Instructions/Instructions.js';
 import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
-import './App.css';
+// import './App.css';
 import Alert from '../Alert/Alert.js';
 import CartSuccess from '../CartSuccess/CartSuccess.js';
 
@@ -32,6 +32,9 @@ function showAdditional(additional){
 function App() {
   const greeting = "greeting";
   const displayAction = false;
+  const wrapper = {
+    padding: 20
+  }
   return (
     // <div className="container">
     //   <h1 id={greeting}>Hello, World</h1>
@@ -52,7 +55,7 @@ function App() {
     //     }
     //   </ul>
     // </div>
-    <div className='wrapper'>
+    <div style={wrapper}>
       <h1>Animals</h1>
       {data.map(animal =>(
         <AnimalCard
