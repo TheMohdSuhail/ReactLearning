@@ -3,6 +3,8 @@ import Instructions from '../Instructions/Instructions.js';
 import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
 import './App.css';
+import Alert from '../Alert/Alert.js';
+import CartSuccess from '../CartSuccess/CartSuccess.js';
 
 
 // const displayEmojiName = event => alert(event.target.id);
@@ -63,6 +65,10 @@ function App() {
         showAdditional={showAdditional}
         />
       ))}
+      <Alert title = "Items Not Added" type="error">
+        <div>Your items are out of stock</div>
+      </Alert>
+      <CartSuccess />
     </div>
   )
 }
