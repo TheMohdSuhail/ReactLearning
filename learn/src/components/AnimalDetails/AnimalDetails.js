@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './AnimalDetails.css';
+import '../Card/Card'
 
 function convertFood(food){
     switch(food){

@@ -19,15 +19,15 @@ export default function AnimalCard({
 
 
     return (
-        <Card title="Animal">
-            <h2>{name}</h2>
-            {/* <h3>{scientificName}</h3> */}
-            <h3>{size}</h3>
+        <Card title="Animal" details = {<em> Mammal</em>}>
             <AnimalDetails
             scientificName = {scientificName}
             diet={diet} />
-            <div>{diet.join(', ')},</div>
-            <button onClick={() => showAdditional(additional)}>More Info</button>
+            {/* <h3>{scientificName}</h3> */}
+            <div>{diet.join(', ')}</div>
+            <h2>{name}</h2>
+            <h3>{size}</h3>
+            
 
         </Card>
     );
