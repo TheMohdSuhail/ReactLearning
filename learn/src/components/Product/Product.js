@@ -8,6 +8,19 @@ export default class Product extends Component{
         cart:[],
         total:0
     }
+    add = () =>{
+        this.setState({
+            cart:['ice cream'],
+            total:5
+        })
+    }
+
+    remove = () =>{
+        this.setState({
+            cart:[]
+        })
+    }
+
     currencyOptions = {
         minimumFractionDigits:2,
         maximumFractionDigits:2,
@@ -24,7 +37,7 @@ export default class Product extends Component{
                 <div className="product">
                     <span role="img" arial-label ='ice-cream'>🍦</span>
                 </div>
-                    <button>Add</button> <button>Remove</button>
+                    <button onClick={this.add}>Add</button> <button onClick={this.remove}>Remove</button>
             </div>
         )
     }
