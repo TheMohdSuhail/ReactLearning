@@ -5,6 +5,8 @@ import data from './data.js';
 // import './App.css';
 import Alert from '../Alert/Alert.js';
 import CartSuccess from '../CartSuccess/CartSuccess.js';
+import {createUseStyles} from 'react-jss';
+import Product from '../Product/Product.js';
 
 
 // const displayEmojiName = event => alert(event.target.id);
@@ -29,12 +31,16 @@ function showAdditional(additional){
   alert(alertInformation)
 };
 
+const useStyles = createUseStyles({
+  wrapper:{
+    padding:20,
+  }
+});
 function App() {
   const greeting = "greeting";
   const displayAction = false;
-  const wrapper = {
-    padding: 20
-  }
+  const classes = useStyles()
+ 
   return (
     // <div className="container">
     //   <h1 id={greeting}>Hello, World</h1>
@@ -55,7 +61,7 @@ function App() {
     //     }
     //   </ul>
     // </div>
-    <div style={wrapper}>
+    <div className={classes.wrapper}>
       <h1>Animals</h1>
       {data.map(animal =>(
         <AnimalCard
@@ -72,6 +78,7 @@ function App() {
         <div>Your items are out of stock</div>
       </Alert>
       <CartSuccess />
+      <Product />
     </div>
   )
 }
