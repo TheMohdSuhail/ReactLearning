@@ -62,7 +62,7 @@ function App() {
     //   </ul>
     // </div>
     <div className={classes.wrapper}>
-      <h1>Animals</h1>
+      {/* <h1>Animals</h1>
       {data.map(animal =>(
         <AnimalCard
         additional={animal.additional}
@@ -77,7 +77,7 @@ function App() {
       <Alert title = "Items Not Added" type="error">
         <div>Your items are out of stock</div>
       </Alert>
-      <CartSuccess />
+      <CartSuccess /> */}
       <Product />
     </div>
   )
