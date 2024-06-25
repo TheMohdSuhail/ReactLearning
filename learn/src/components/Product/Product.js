@@ -1,43 +1,81 @@
 //  Using State in with Class base Component 
-import React, {Component} from "react";
+import React, { Component } from "react";
 import './Product.css';
 
-export default class Product extends Component{
+
+const products = [
+    {
+        emoji: '🍦',
+        name: 'ice cream',
+        price: 5
+    },
+    {
+        emoji: '🍩',
+        name: 'donuts',
+        price: 2.5,
+    },
+    {
+        emoji: '🍉',
+        name: 'watermelon',
+        price: 4
+    }
+]
+
+export default class Product extends Component {
 
     state = {
-        cart:[],
-        total:0
-    }
-    add = () =>{
-        this.setState({
-            cart:['ice cream'],
-            total:5
-        })
+        cart: [],
+        total: 0
     }
 
-    remove = () =>{
-        this.setState({
-            cart:[]
+    add = (product) => {
+        this.setState(state => ({
+            cart: [...state.cart, product],
+        }))
+    }
+
+    remove = (product) => {
+        this.setState(state => {
+            const cart = [...state.cart];
+            const productIndex = cart.findIndex(p => p.name === product);
+        if (productIndex < 0) {
+                return;
+            }
+            cart.splice(productIndex, 1)
+            return ({
+                cart
+            })
         })
     }
 
     currencyOptions = {
-        minimumFractionDigits:2,
-        maximumFractionDigits:2,
-    }
-    getTotal = () =>{
-        return this.state.total.toLocaleString(undefined, this.currencyOptions)
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
     }
 
-    render(){
-        return(
+    getTotal = () => {
+        const total = this.state.cart.reduce(
+            (totalCost, item) => totalCost + item.price, 0
+        );
+        return total.toLocaleString(undefined, this.currencyOptions)
+    }
+
+    render() {
+        return (
             <div className="wrapper">
-                <div>Shoping Cart:{this.state.cart.length} total items.</div>
+                <div>Shopping Cart: {this.state.cart.length} total items.</div>
                 <div>Total: {this.getTotal()}</div>
-                <div className="product">
-                    <span role="img" arial-label ='ice-cream'>🍦</span>
+                <div>
+                    {products.map(product => (
+                        <div key={product.name}>
+                            <div className="product">
+                                <span role="img" aria-label={product.name}>{product.emoji}</span>
+                            </div>
+                            <button onClick={() => this.add(product)}>Add</button>
+                            <button onClick={() => this.remove(product)}>Remove</button>
+                        </div>
+                    ))}
                 </div>
-                    <button onClick={this.add}>Add</button> <button onClick={this.remove}>Remove</button>
             </div>
         )
     }
