@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createContext, useReducer} from "react";
 import { createUseStyles } from "react-jss";
 import SaladBuilder from "../SaladBuilder/SaladBuilder";
 import SaladSummary from "../SaladSummary/SaladSummary";
@@ -11,10 +11,17 @@ const useStyles = createUseStyles({
     }
 });
 
+export const SaladContext = createContext();
+
+function reducer(state, item){
+    return [...state,item]
+}
+
 export default function SaladMake() {
     const classes = useStyles();
+    const [salad, setSalad] = useReducer(reducer,[])
     return (
-        <>
+        <SaladContext.Provider value={{salad,setSalad}}>
             <h1 className={classes.wrapper}>
                 <span role="img" aria-label="salad">🥗 </span>
                 Build Your Custom Salad!
@@ -23,6 +30,6 @@ export default function SaladMake() {
             </h1>
             <SaladBuilder />
             <SaladSummary />
-        </>
+        </SaladContext.Provider>
     )
 }
