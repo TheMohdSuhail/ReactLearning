@@ -7,6 +7,8 @@ import Alert from '../Alert/Alert.js';
 import CartSuccess from '../CartSuccess/CartSuccess.js';
 import {createUseStyles} from 'react-jss';
 import Product from '../Product/Product.js';
+import Navigation from '../Navigation/Navivation.js';
+import SaladMake from '../SaladMaker/SaladMaker.js';
 
 
 // const displayEmojiName = event => alert(event.target.id);
@@ -42,6 +44,7 @@ function App() {
   const classes = useStyles()
  
   return (
+    
     // <div className="container">
     //   <h1 id={greeting}>Hello, World</h1>
     //   {displayAction && <p>I am writing JSX</p>}
@@ -78,7 +81,9 @@ function App() {
         <div>Your items are out of stock</div>
       </Alert>
       <CartSuccess /> */}
-      <Product />
+      <Navigation />
+      <SaladMake />
+      {/* <Product /> */}
     </div>
   )
 }
