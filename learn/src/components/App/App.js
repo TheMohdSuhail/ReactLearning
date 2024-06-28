@@ -9,7 +9,7 @@ import {createUseStyles} from 'react-jss';
 import Product from '../Product/Product.js';
 import Navigation from '../Navigation/Navivation.js';
 import SaladMake from '../SaladMaker/SaladMaker.js';
-
+import UserContext from '../User/User.js';
 
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
@@ -38,6 +38,14 @@ const useStyles = createUseStyles({
     padding:20,
   }
 });
+
+const user = {
+  name:"MSP",
+  favorites:[
+    'avocado',
+    'carrot'
+  ]
+}
 function App() {
   const greeting = "greeting";
   const displayAction = false;
@@ -81,9 +89,11 @@ function App() {
         <div>Your items are out of stock</div>
       </Alert>
       <CartSuccess /> */}
+      <UserContext.Provider value={user}>
       <Navigation />
       <SaladMake />
       {/* <Product /> */}
+      </UserContext.Provider>
     </div>
   )
 }
