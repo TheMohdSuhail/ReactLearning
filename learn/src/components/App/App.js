@@ -10,6 +10,7 @@ import Product from '../Product/Product.js';
 import Navigation from '../Navigation/Navivation.js';
 import SaladMake from '../SaladMaker/SaladMaker.js';
 import UserContext from '../User/User.js';
+import DebugTutorial from '../DebugTutorial/DebugTutorial.js';
 
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
@@ -89,11 +90,12 @@ function App() {
         <div>Your items are out of stock</div>
       </Alert>
       <CartSuccess /> */}
-      <UserContext.Provider value={user}>
+      {/* <UserContext.Provider value={user}>
       <Navigation />
-      <SaladMake />
+      <SaladMake /> */}
       {/* <Product /> */}
-      </UserContext.Provider>
+      {/* </UserContext.Provider> */}
+        <DebugTutorial/>
     </div>
   )
 }
