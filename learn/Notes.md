@@ -4,3 +4,5 @@
 
 Step 1 — Extracting Event Data with SyntheticEvent
 
+Step 2 — Adding Multiple Event Handlers to the Same
+Element

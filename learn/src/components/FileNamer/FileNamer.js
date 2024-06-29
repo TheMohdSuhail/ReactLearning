@@ -4,8 +4,8 @@ export default function FileNamer() {
     const [name, setName] = useState('');
     const [alert, setAlert] = useState(false);
 
-    const validate = event=>{
-        if(/\*/.test(name)){
+    const validate = event => {
+        if (/\*/.test(name)) {
             event.preventDefault();
             setAlert(true);
             return;
@@ -23,9 +23,17 @@ export default function FileNamer() {
                 <label>
                     <p>Name:</p>
                     <input name="name" autoComplete="off"
-                      onChange={event=> {setName(event.target.value)}} />
+                    onBlur={() =>setAlert(false)}
+                        onChange={event => { setName(event.target.value) }} 
+                        onFocus={() =>setAlert(true)}
+                        />
+
                 </label>
-                {alert  && <div> Forbidden Character: *</div>}
+                {alert && <div>
+                    <span role="img" aria-label="allowed">✅</span> Alphanumeric Characters
+                    <br />
+                    <span role="img" aria-label="not allowed">⛔️</span> *
+                </div>}
                 <div>
                     <button onClick={validate}>Save</button>
                 </div>
