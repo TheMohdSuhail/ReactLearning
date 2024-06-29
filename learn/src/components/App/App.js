@@ -11,6 +11,7 @@ import Navigation from '../Navigation/Navivation.js';
 import SaladMake from '../SaladMaker/SaladMaker.js';
 import UserContext from '../User/User.js';
 import DebugTutorial from '../DebugTutorial/DebugTutorial.js';
+import FileNamer from '../FileNamer/FileNamer.js';
 
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
@@ -95,7 +96,8 @@ function App() {
       <SaladMake /> */}
       {/* <Product /> */}
       {/* </UserContext.Provider> */}
-        <DebugTutorial/>
+        {/* <DebugTutorial/> */}
+        <FileNamer />
     </div>
   )
 }
