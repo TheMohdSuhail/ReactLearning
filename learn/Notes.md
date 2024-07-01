@@ -24,3 +24,18 @@ Step 3 — Updating Form Data Using Controlled
 Components
 
 Step 4 — Dynamically Updating Form Properties
+
+### How to Handle Async Data Loading, Lazy Loading, and Code Spitting with React
+
+Step 1 — Loading Asynchronous Data with useEffect.
+
+In this step, you’ll use the useEffect Hook to load asynchronous data into
+a sample application. You’ll use the Hook to prevent unnecessary data
+fetching, add placeholders while the data is loading, and update the
+component when the data resolves. By the end of this step, you’ll be able to
+load data with useEffect and set data using the useState Hook when it
+resolves.
+To explore the topic, you are going to create an application to display
+information about the longest rivers in the world. You’ll load data using an
+asynchronous function that simulates a request to an external data source
+

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Instructions from '../Instructions/Instructions.js';
 import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
@@ -13,6 +13,7 @@ import UserContext from '../User/User.js';
 import DebugTutorial from '../DebugTutorial/DebugTutorial.js';
 import FileNamer from '../FileNamer/FileNamer.js';
 import FormTutorial from '../FormTutorial/FormTutorial.js';
+import RiverInformation from '../RiverInformation/RiverInformation.js';
 
 
 // const displayEmojiName = event => alert(event.target.id);
@@ -54,6 +55,7 @@ function App() {
   const greeting = "greeting";
   const displayAction = false;
   const classes = useStyles()
+  const [river, setRiver] = useState('nile');
  
   return (
     
@@ -100,7 +102,14 @@ function App() {
       {/* </UserContext.Provider> */}
         {/* <DebugTutorial/> */}
         {/* <FileNamer /> */}
-        <FormTutorial />
+        {/* <FormTutorial /> */}
+        <h1>World's Longest Rivers</h1>
+      <button onClick={() => setRiver('nile')}>Nile</button>
+      <button onClick={() => setRiver('amazon')}>Amazon</button>
+      <button onClick={() => setRiver('yangtze')}>Yangtze</button>
+      <button onClick={() => setRiver('mississippi')}>Mississippi</button>
+        <RiverInformation name={river} />
+
     </div>
   )
 }
