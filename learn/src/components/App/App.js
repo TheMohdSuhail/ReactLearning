@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import Instructions from '../Instructions/Instructions.js';
 import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
@@ -56,6 +56,7 @@ function App() {
   const displayAction = false;
   const classes = useStyles()
   const [river, setRiver] = useState('nile');
+  const [show, toggle] = useReducer(state => !state, true);
  
   return (
     
@@ -104,11 +105,12 @@ function App() {
         {/* <FileNamer /> */}
         {/* <FormTutorial /> */}
         <h1>World's Longest Rivers</h1>
+        <div><button onClick={toggle}>Toggle Details</button></div>
       <button onClick={() => setRiver('nile')}>Nile</button>
       <button onClick={() => setRiver('amazon')}>Amazon</button>
       <button onClick={() => setRiver('yangtze')}>Yangtze</button>
       <button onClick={() => setRiver('mississippi')}>Mississippi</button>
-        <RiverInformation name={river} />
+        {show &&<RiverInformation name={river} />}
 
     </div>
   )

@@ -39,3 +39,6 @@ To explore the topic, you are going to create an application to display
 information about the longest rivers in the world. You’ll load data using an
 asynchronous function that simulates a request to an external data source
 
+ Step 2 — Preventing Errors on Unmounted Components
+
+ 
