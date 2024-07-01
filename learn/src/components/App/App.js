@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, {lazy, Suspense,useReducer, useState} from 'react';
 import Instructions from '../Instructions/Instructions.js';
 import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
@@ -13,8 +13,9 @@ import UserContext from '../User/User.js';
 import DebugTutorial from '../DebugTutorial/DebugTutorial.js';
 import FileNamer from '../FileNamer/FileNamer.js';
 import FormTutorial from '../FormTutorial/FormTutorial.js';
-import RiverInformation from '../RiverInformation/RiverInformation.js';
+// import RiverInformation from '../RiverInformation/RiverInformation.js';
 
+const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
 
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
@@ -110,7 +111,11 @@ function App() {
       <button onClick={() => setRiver('amazon')}>Amazon</button>
       <button onClick={() => setRiver('yangtze')}>Yangtze</button>
       <button onClick={() => setRiver('mississippi')}>Mississippi</button>
+      <Suspense fallback={<div>Loading Compenent</div>}>
+
         {show &&<RiverInformation name={river} />}
+
+      </Suspense>
 
     </div>
   )

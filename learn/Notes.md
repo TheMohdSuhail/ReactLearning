@@ -41,4 +41,5 @@ asynchronous function that simulates a request to an external data source
 
  Step 2 — Preventing Errors on Unmounted Components
 
+ Step 3 — Lazy Loading a Component with Suspense and lazy
  
