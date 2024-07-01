@@ -15,3 +15,7 @@ capture events that occur outside the immediate component.
 
 ### How to Build Forms in React
 
+Step 1 — Creating a Basic Form with JSX
+
+Step 2 — Collecting Form Data Using Uncontrolled
+Components
