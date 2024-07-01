@@ -22,3 +22,5 @@ Components
 
 Step 3 — Updating Form Data Using Controlled
 Components
+
+Step 4 — Dynamically Updating Form Properties
