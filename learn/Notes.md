@@ -19,3 +19,6 @@ Step 1 — Creating a Basic Form with JSX
 
 Step 2 — Collecting Form Data Using Uncontrolled
 Components
+
+Step 3 — Updating Form Data Using Controlled
+Components
