@@ -55,3 +55,6 @@ and will give you a live URL to make GET and POST requests. With a local
 API, you have the opportunity to prototype and test components while you
 or another team develops live API
 
+Step 2 — Fetching Data from an API with useEffect
+
+

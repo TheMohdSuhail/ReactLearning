@@ -1,4 +1,4 @@
-import React, {lazy, Suspense,useReducer, useState} from 'react';
+import React, {lazy, Suspense,useEffect,useReducer, useState} from 'react';
 import Instructions from '../Instructions/Instructions.js';
 import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
@@ -15,7 +15,8 @@ import FileNamer from '../FileNamer/FileNamer.js';
 import FormTutorial from '../FormTutorial/FormTutorial.js';
 // import RiverInformation from '../RiverInformation/RiverInformation.js';
 
-const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
+// const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
+import { getList } from '../../groceriesService/list.js';
 
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
@@ -58,6 +59,19 @@ function App() {
   const classes = useStyles()
   const [river, setRiver] = useState('nile');
   const [show, toggle] = useReducer(state => !state, true);
+  const [list,setList] = useState([]);
+
+  useEffect(()=>{
+    let mounted = true;
+    getList()
+    .then(items=>{
+      if(mounted){
+        setList(items)
+      }
+    })
+    return () => mounted = false;
+
+  },[])
  
   return (
     
@@ -105,7 +119,7 @@ function App() {
         {/* <DebugTutorial/> */}
         {/* <FileNamer /> */}
         {/* <FormTutorial /> */}
-        <h1>World's Longest Rivers</h1>
+        {/* <h1>World's Longest Rivers</h1>
         <div><button onClick={toggle}>Toggle Details</button></div>
       <button onClick={() => setRiver('nile')}>Nile</button>
       <button onClick={() => setRiver('amazon')}>Amazon</button>
@@ -115,7 +129,12 @@ function App() {
 
         {show &&<RiverInformation name={river} />}
 
-      </Suspense>
+      </Suspense> */}
+
+      <h1>My Grocery List</h1>
+      <ul>
+        {list.map(item=><li key={item.item}>{item.item}</li>)}
+      </ul>
 
     </div>
   )
