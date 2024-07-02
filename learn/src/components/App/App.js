@@ -1,4 +1,4 @@
-import React, {lazy, Suspense,useEffect,useReducer, useState} from 'react';
+import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
 import Instructions from '../Instructions/Instructions.js';
 import AnimalCard from '../AnimalCard/AnimalCard.js';
 import data from './data.js';
@@ -16,7 +16,7 @@ import FormTutorial from '../FormTutorial/FormTutorial.js';
 // import RiverInformation from '../RiverInformation/RiverInformation.js';
 
 // const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
-import { getList } from '../../groceriesService/list.js';
+import { getList,setItem } from '../../groceriesService/list.js';
 
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
@@ -54,6 +54,9 @@ const user = {
   ]
 }
 function App() {
+
+  const [alert, setAlert] = useState(false);
+
   const greeting = "greeting";
   const displayAction = false;
   const classes = useStyles()
@@ -61,17 +64,47 @@ function App() {
   const [show, toggle] = useReducer(state => !state, true);
   const [list,setList] = useState([]);
 
+  const [itemInput, setItemInput] = useState('');
+  let mounted = useRef(true);
+
   useEffect(()=>{
-    let mounted = true;
+    mounted.current = true;
+    if(list.length && !alert){
+      return;
+    }
     getList()
     .then(items=>{
-      if(mounted){
+      if(mounted.current){
         setList(items)
       }
     })
-    return () => mounted = false;
+    return () => mounted.current = false;
 
-  },[])
+  },[alert, list])
+
+  useEffect(() => {
+    if(alert) {
+    setTimeout(() => {
+      if(mounted.current){
+        
+        setAlert(false);
+      }
+    }, 1000)
+    }
+   }, [alert])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setItem(itemInput)
+    .then(() => {
+      if(mounted.current){
+        
+        setItemInput('');
+        setAlert(true);
+      }
+    })
+   };
+   
  
   return (
     
@@ -135,7 +168,14 @@ function App() {
       <ul>
         {list.map(item=><li key={item.item}>{item.item}</li>)}
       </ul>
-
+      {alert && <h2> Submit Successful</h2>}
+          <form onSubmit={handleSubmit}>
+              <label htmlFor="">
+                <p>New Item</p>
+                <input type="text" name="" id="" onChange={event => setItemInput(event.target.value)} value={itemInput} />
+              </label>
+              <button type="submit">Submit</button>
+          </form>
     </div>
   )
 }

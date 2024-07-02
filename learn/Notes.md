@@ -57,4 +57,10 @@ or another team develops live API
 
 Step 2 — Fetching Data from an API with useEffect
 
+Step 3 — Sending Data to an API
+
+In this step, you’ll send data back to an API using the Fetch API and the PO
+ST method. You’ll create a component that will use a web form to send the
+data with the onSubmit event handler and will display a success message
+when the action is complete.
 
