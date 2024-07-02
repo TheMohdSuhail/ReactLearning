@@ -42,4 +42,16 @@ asynchronous function that simulates a request to an external data source
  Step 2 — Preventing Errors on Unmounted Components
 
  Step 3 — Lazy Loading a Component with Suspense and lazy
- 
+
+### How To Call Web APIs with the useEffect Hook in React
+
+Step 1 — Creating a Project and a Local API
+
+
+In this step, you’ll create a local REST API using JSON server, which you
+will use as a test data source. Later, you’ll build an application to display a
+grocery list and to add items to the list. JSON server will be your local API
+and will give you a live URL to make GET and POST requests. With a local
+API, you have the opportunity to prototype and test components while you
+or another team develops live API
+
