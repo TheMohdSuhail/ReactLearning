@@ -59,8 +59,8 @@ Step 2 — Fetching Data from an API with useEffect
 
 Step 3 — Sending Data to an API
 
-In this step, you’ll send data back to an API using the Fetch API and the PO
-ST method. You’ll create a component that will use a web form to send the
-data with the onSubmit event handler and will display a success message
-when the action is complete.
+In this step, you’ll send data back to an API using the Fetch API and the POST method. You’ll create a component that will use a web form to send thedata with the onSubmit event handler and will display a success message when the action is complete.
 
+### How To Manage State in React with Redux
+
+In this tutorial, you’ll use Redux in a React application by building a bird watching test application. Users will be able to add birds they have seen and increment a bird each time they see it again. You’ll build a single data store, and you’ll create actions and reducers to update the store. You’ll then pull data into your components and dispatch new changes to update the data.

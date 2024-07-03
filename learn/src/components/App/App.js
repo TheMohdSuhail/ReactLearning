@@ -17,7 +17,7 @@ import FormTutorial from '../FormTutorial/FormTutorial.js';
 
 // const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
 import { getList,setItem } from '../../groceriesService/list.js';
-
+import { useSelector } from 'react-redux';
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
 //   {
@@ -33,12 +33,12 @@ import { getList,setItem } from '../../groceriesService/list.js';
 //     name: "woman dancing"
 //   }
 // ];
-function showAdditional(additional){
-  const alertInformation = Object.entries(additional)
-  .map(information => `${information[0]};${information[1]}`)
-  .join('\n');
-  alert(alertInformation)
-};
+// function showAdditional(additional){
+//   const alertInformation = Object.entries(additional)
+//   .map(information => `${information[0]};${information[1]}`)
+//   .join('\n');
+//   alert(alertInformation)
+// };
 
 const useStyles = createUseStyles({
   wrapper:{
@@ -46,64 +46,66 @@ const useStyles = createUseStyles({
   }
 });
 
-const user = {
-  name:"MSP",
-  favorites:[
-    'avocado',
-    'carrot'
-  ]
-}
+// const user = {
+//   name:"MSP",
+//   favorites:[
+//     'avocado',
+//     'carrot'
+//   ]
+// }
 function App() {
 
-  const [alert, setAlert] = useState(false);
+  // const [alert, setAlert] = useState(false);
 
   const greeting = "greeting";
   const displayAction = false;
   const classes = useStyles()
-  const [river, setRiver] = useState('nile');
-  const [show, toggle] = useReducer(state => !state, true);
-  const [list,setList] = useState([]);
+  // const [river, setRiver] = useState('nile');
+  // const [show, toggle] = useReducer(state => !state, true);
+  // const [list,setList] = useState([]);
 
-  const [itemInput, setItemInput] = useState('');
-  let mounted = useRef(true);
+  // const [itemInput, setItemInput] = useState('');
+  // let mounted = useRef(true);
 
-  useEffect(()=>{
-    mounted.current = true;
-    if(list.length && !alert){
-      return;
-    }
-    getList()
-    .then(items=>{
-      if(mounted.current){
-        setList(items)
-      }
-    })
-    return () => mounted.current = false;
+  // useEffect(()=>{
+  //   mounted.current = true;
+  //   if(list.length && !alert){
+  //     return;
+  //   }
+  //   getList()
+  //   .then(items=>{
+  //     if(mounted.current){
+  //       setList(items)
+  //     }
+  //   })
+  //   return () => mounted.current = false;
 
-  },[alert, list])
+  // },[alert, list])
 
-  useEffect(() => {
-    if(alert) {
-    setTimeout(() => {
-      if(mounted.current){
+  // useEffect(() => {
+  //   if(alert) {
+  //   setTimeout(() => {
+  //     if(mounted.current){
         
-        setAlert(false);
-      }
-    }, 1000)
-    }
-   }, [alert])
+  //       setAlert(false);
+  //     }
+  //   }, 1000)
+  //   }
+  //  }, [alert])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setItem(itemInput)
-    .then(() => {
-      if(mounted.current){
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setItem(itemInput)
+  //   .then(() => {
+  //     if(mounted.current){
         
-        setItemInput('');
-        setAlert(true);
-      }
-    })
-   };
+  //       setItemInput('');
+  //       setAlert(true);
+  //     }
+  //   })
+  //  };
+
+   const birds = useSelector(state=> state.birds);
    
  
   return (
@@ -164,7 +166,7 @@ function App() {
 
       </Suspense> */}
 
-      <h1>My Grocery List</h1>
+      {/* <h1>My Grocery List</h1>
       <ul>
         {list.map(item=><li key={item.item}>{item.item}</li>)}
       </ul>
@@ -175,7 +177,29 @@ function App() {
                 <input type="text" name="" id="" onChange={event => setItemInput(event.target.value)} value={itemInput} />
               </label>
               <button type="submit">Submit</button>
+          </form> */}
+
+          <h1>Bird List</h1>
+          <form>
+            <label htmlFor="">
+              <p>Add Bird</p>
+              <input type="text" name="" id="" />
+            </label>
+            <div>
+              <button type="submit">Add</button>
+            </div>
           </form>
+          <ul>
+              {birds.map(bird =>(
+                <li key={bird.name}>
+                  <h3>{bird.name}</h3>
+                  <div>
+                    Views:{bird.views}
+                    <button><span role="img" aria-label ="add">+</span></button>
+                  </div>
+              </li>
+            ))}
+          </ul>
     </div>
   )
 }
