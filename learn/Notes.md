@@ -64,3 +64,10 @@ In this step, you’ll send data back to an API using the Fetch API and the POST
 ### How To Manage State in React with Redux
 
 In this tutorial, you’ll use Redux in a React application by building a bird watching test application. Users will be able to add birds they have seen and increment a bird each time they see it again. You’ll build a single data store, and you’ll create actions and reducers to update the store. You’ll then pull data into your components and dispatch new changes to update the data.
+
+Step 2 — Creating Actions and Reducers
+
+Next, you’ll create actions to add a bird and to increment a view. You’ll
+then make a reducer that will update the information depending on the
+action type. Finally, you’ll use the reducers to create a default store using combineReducers 
+
