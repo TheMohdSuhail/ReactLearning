@@ -5,6 +5,7 @@ const INCREMENT_BIRD = 'INCREMENT_BIRD';
 export function addBird(bird){
     return{
         type:'ADD_BIRD',
+        bird,
     }
 }
 

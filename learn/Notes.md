@@ -71,3 +71,15 @@ Next, you’ll create actions to add a bird and to increment a view. You’ll
 then make a reducer that will update the information depending on the
 action type. Finally, you’ll use the reducers to create a default store using combineReducers 
 
+
+Step 3 — Dispatching Changes in a Component
+
+Your Redux store is now all set up and ready for changes. In the next tep
+you’ll dispatch actions from a component to update the data.
+
+In this step, you’ll import and call your actions from your component.
+You’ll use a method called dispatch to send the action and you’ll dispatch
+the actions inside of event handlers for the form and the button .
+By the end of this step, you’ll have a working application that combines a
+Redux store and your custom components. You’ll be able to update the Redux store in real time and will be able to display the information in your component as it changes.
+

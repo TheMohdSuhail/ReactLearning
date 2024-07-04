@@ -17,7 +17,8 @@ import FormTutorial from '../FormTutorial/FormTutorial.js';
 
 // const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
 import { getList,setItem } from '../../groceriesService/list.js';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBird, increment_Bird } from '../../store/birds/birds.js';
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
 //   {
@@ -104,8 +105,18 @@ function App() {
   //     }
   //   })
   //  };
+  const [birdName, setBird] = useState('');
 
-   const birds = useSelector(state=> state.birds);
+   const birds = [...useSelector(state => state.birds)].sort((a, b) => {
+    return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+  });
+   const dispatch = useDispatch(); 
+
+   const handleSubmit = event =>{
+    event.preventDefault();
+    dispatch(addBird(birdName))
+    setBird('');
+   };
    
  
   return (
@@ -180,10 +191,10 @@ function App() {
           </form> */}
 
           <h1>Bird List</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="">
               <p>Add Bird</p>
-              <input type="text" name="" id="" />
+              <input type="text" onChange={e=> setBird(e.target.value)} value={birdName}/>
             </label>
             <div>
               <button type="submit">Add</button>
@@ -195,7 +206,7 @@ function App() {
                   <h3>{bird.name}</h3>
                   <div>
                     Views:{bird.views}
-                    <button><span role="img" aria-label ="add">+</span></button>
+                    <button onClick={() => dispatch(increment_Bird(bird.name))}><span role="img" aria-label="add">➕</span></button>
                   </div>
               </li>
             ))}
