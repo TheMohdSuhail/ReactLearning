@@ -128,6 +128,8 @@ Add a new route of /whale/:type and add an exact property to the current
 route
 
 
+Step 4 — Nesting Routes
+
 
 
 
