@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 // import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
 // import Instructions from '../Instructions/Instructions.js';
 // import AnimalCard from '../AnimalCard/AnimalCard.js';
@@ -6,7 +7,7 @@ import React from 'react';
 // // import './App.css';
 // import Alert from '../Alert/Alert.js';
 // import CartSuccess from '../CartSuccess/CartSuccess.js';
-import {createUseStyles} from 'react-jss';
+import { createUseStyles } from 'react-jss';
 // import Product from '../Product/Product.js';
 // import Navigation from '../Navigation/Navivation.js';
 // import SaladMake from '../SaladMaker/SaladMaker.js';
@@ -15,6 +16,8 @@ import {createUseStyles} from 'react-jss';
 // import FileNamer from '../FileNamer/FileNamer.js';
 // import FormTutorial from '../FormTutorial/FormTutorial.js';
 import Manatee from '../Manatee/Manatee.js';
+import Narwhal from '../Narwhal/Narwhal.js';
+import Whale from '../Whale/Whale.js';
 // import RiverInformation from '../RiverInformation/RiverInformation.js';
 
 // const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
@@ -44,8 +47,8 @@ import Manatee from '../Manatee/Manatee.js';
 // };
 
 const useStyles = createUseStyles({
-  wrapper:{
-    padding:20,
+  wrapper: {
+    padding: 20,
   }
 });
 
@@ -89,7 +92,7 @@ function App() {
   //   if(alert) {
   //   setTimeout(() => {
   //     if(mounted.current){
-        
+
   //       setAlert(false);
   //     }
   //   }, 1000)
@@ -101,7 +104,7 @@ function App() {
   //   setItem(itemInput)
   //   .then(() => {
   //     if(mounted.current){
-        
+
   //       setItemInput('');
   //       setAlert(true);
   //     }
@@ -119,10 +122,10 @@ function App() {
   //   dispatch(addBird(birdName))
   //   setBird('');
   //  };
-   
- 
+
+
   return (
-    
+
     // <div className="container">
     //   <h1 id={greeting}>Hello, World</h1>
     //   {displayAction && <p>I am writing JSX</p>}
@@ -164,10 +167,10 @@ function App() {
       <SaladMake /> */}
       {/* <Product /> */}
       {/* </UserContext.Provider> */}
-        {/* <DebugTutorial/> */}
-        {/* <FileNamer /> */}
-        {/* <FormTutorial /> */}
-        {/* <h1>World's Longest Rivers</h1>
+      {/* <DebugTutorial/> */}
+      {/* <FileNamer /> */}
+      {/* <FormTutorial /> */}
+      {/* <h1>World's Longest Rivers</h1>
         <div><button onClick={toggle}>Toggle Details</button></div>
       <button onClick={() => setRiver('nile')}>Nile</button>
       <button onClick={() => setRiver('amazon')}>Amazon</button>
@@ -192,7 +195,7 @@ function App() {
               <button type="submit">Submit</button>
           </form> */}
 
-          {/* <h1>Bird List</h1>
+      {/* <h1>Bird List</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="">
               <p>Add Bird</p>
@@ -214,8 +217,22 @@ function App() {
             ))}
           </ul> */}
 
-        <h1>Marine Mammals</h1>
-        <Manatee />
+      <h1>Marine Mammals</h1>
+
+      <BrowserRouter>
+        <nav>
+          <ul>
+            <li><Link to="/manatee">Manatee</Link></li>
+            <li><Link to="/narwhal">Narwhal</Link></li>
+            <li><Link to="/whale">Whale</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/manatee" element={<Manatee />} />
+          <Route path="/narwhal" element={<Narwhal />} />
+          <Route path="/whale" element={<Whale />} />
+        </Routes>
+      </BrowserRouter>
 
     </div>
   )

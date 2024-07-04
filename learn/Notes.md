@@ -98,3 +98,8 @@ components are going to be individual pages that you’ll display by route. In
 the next step, you’ll add routes and use the <Link> component to create
 performant hyperlinks.
 
+Step 2 — Adding Routes
+In this step, you’ll create a base router with individual routes for each page. You’ll order your routes to ensure that components are rendered correctly and you’ll use the <Link> component to add hyperlinks to your project that won’t trigger a page refresh.
+
+
+
