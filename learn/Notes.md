@@ -83,3 +83,18 @@ the actions inside of event handlers for the form and the button .
 By the end of this step, you’ll have a working application that combines a
 Redux store and your custom components. You’ll be able to update the Redux store in real time and will be able to display the information in your component as it changes.
 
+
+### How To Handle Routing in React Apps with React Router
+
+Step 1 - Installing React Router.
+
+In this step, you’ll install React Router into your base project. In this
+project, you are going to make a small website about marine mammals.
+Each mammal will need a separate component that you’ll render with the
+router. After installing the library, you’ll create a series of components for each mammal. By the end of this step, you’ll have a foundation for rendering different mammals based on route.
+
+In this step, you installed React Router and created basic components. The
+components are going to be individual pages that you’ll display by route. In
+the next step, you’ll add routes and use the <Link> component to create
+performant hyperlinks.
+

@@ -1,24 +1,26 @@
-import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
-import Instructions from '../Instructions/Instructions.js';
-import AnimalCard from '../AnimalCard/AnimalCard.js';
-import data from './data.js';
-// import './App.css';
-import Alert from '../Alert/Alert.js';
-import CartSuccess from '../CartSuccess/CartSuccess.js';
+import React from 'react';
+// import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
+// import Instructions from '../Instructions/Instructions.js';
+// import AnimalCard from '../AnimalCard/AnimalCard.js';
+// import data from './data.js';
+// // import './App.css';
+// import Alert from '../Alert/Alert.js';
+// import CartSuccess from '../CartSuccess/CartSuccess.js';
 import {createUseStyles} from 'react-jss';
-import Product from '../Product/Product.js';
-import Navigation from '../Navigation/Navivation.js';
-import SaladMake from '../SaladMaker/SaladMaker.js';
-import UserContext from '../User/User.js';
-import DebugTutorial from '../DebugTutorial/DebugTutorial.js';
-import FileNamer from '../FileNamer/FileNamer.js';
-import FormTutorial from '../FormTutorial/FormTutorial.js';
+// import Product from '../Product/Product.js';
+// import Navigation from '../Navigation/Navivation.js';
+// import SaladMake from '../SaladMaker/SaladMaker.js';
+// import UserContext from '../User/User.js';
+// import DebugTutorial from '../DebugTutorial/DebugTutorial.js';
+// import FileNamer from '../FileNamer/FileNamer.js';
+// import FormTutorial from '../FormTutorial/FormTutorial.js';
+import Manatee from '../Manatee/Manatee.js';
 // import RiverInformation from '../RiverInformation/RiverInformation.js';
 
 // const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
-import { getList,setItem } from '../../groceriesService/list.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { addBird, increment_Bird } from '../../store/birds/birds.js';
+// import { getList,setItem } from '../../groceriesService/list.js';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { addBird, increment_Bird } from '../../store/birds/birds.js';
 // const displayEmojiName = event => alert(event.target.id);
 // const emojis = [
 //   {
@@ -58,8 +60,8 @@ function App() {
 
   // const [alert, setAlert] = useState(false);
 
-  const greeting = "greeting";
-  const displayAction = false;
+  // const greeting = "greeting";
+  // const displayAction = false;
   const classes = useStyles()
   // const [river, setRiver] = useState('nile');
   // const [show, toggle] = useReducer(state => !state, true);
@@ -105,18 +107,18 @@ function App() {
   //     }
   //   })
   //  };
-  const [birdName, setBird] = useState('');
+  // const [birdName, setBird] = useState('');
 
-   const birds = [...useSelector(state => state.birds)].sort((a, b) => {
-    return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
-  });
-   const dispatch = useDispatch(); 
+  //  const birds = [...useSelector(state => state.birds)].sort((a, b) => {
+  //   return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+  // });
+  //  const dispatch = useDispatch(); 
 
-   const handleSubmit = event =>{
-    event.preventDefault();
-    dispatch(addBird(birdName))
-    setBird('');
-   };
+  //  const handleSubmit = event =>{
+  //   event.preventDefault();
+  //   dispatch(addBird(birdName))
+  //   setBird('');
+  //  };
    
  
   return (
@@ -190,7 +192,7 @@ function App() {
               <button type="submit">Submit</button>
           </form> */}
 
-          <h1>Bird List</h1>
+          {/* <h1>Bird List</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="">
               <p>Add Bird</p>
@@ -210,7 +212,11 @@ function App() {
                   </div>
               </li>
             ))}
-          </ul>
+          </ul> */}
+
+        <h1>Marine Mammals</h1>
+        <Manatee />
+
     </div>
   )
 }
