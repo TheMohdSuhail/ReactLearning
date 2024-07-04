@@ -101,5 +101,33 @@ performant hyperlinks.
 Step 2 — Adding Routes
 In this step, you’ll create a base router with individual routes for each page. You’ll order your routes to ensure that components are rendered correctly and you’ll use the <Link> component to add hyperlinks to your project that won’t trigger a page refresh.
 
+Step 3 - Accessing Route Data with Hooks
+
+In this step, you’ll use URL queries and parameters to create dynamic
+routes. You’ll learn how to pull information from search parameters with
+the useLocation Hook and how to read information from dynamic URLs
+using the useParams Hook.
+
+Now you need to create a new route that can capture both /whale/beluga
+and /whale/blue . You could add them by hand, but this wouldn’t work in
+situations where you don’t know all the possibilities ahead of time, such as
+when you have a list of users or other dynamic data.
+Instead of making a route for each one, add a URL param to the current
+path. The URL param is a keyword prefaced with a colon. React Router will
+use the parameter as a wildcard and will match any route that contains that
+pattern.
+
+
+In this case, create a keyword of :type . The full path will be /whale/:typ
+e . This will match any route that starts with /whale and it will save the
+variable information inside a parameter variable called type . This route
+will not match /whale , since that does not contain an additional parameter.
+You can either add /whale as a route after the new route or you can add it
+before the route of /whale/:type with the exact keyword.
+Add a new route of /whale/:type and add an exact property to the current
+route
+
+
+
 
 
