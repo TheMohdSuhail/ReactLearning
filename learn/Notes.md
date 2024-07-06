@@ -130,6 +130,44 @@ route
 
 Step 4 — Nesting Routes
 
+### How To Add Login Authentication to React Applications
+
+In this tutorial, you’ll create a React application using a token-based
+authentication system. You’ll create a mock API that will return a user
+token, build a login page that will fetch the token, and check for
+authentication without rerouting a user. If a user is not authenticated, you’ll
+provide an opportunity for them to log in and then allow them to continue
+without navigating to a dedicated login page. As you build the application,
+you’ll explore different methods for storing tokens and will learn the
+security and experience trade-offs for each approach. This tutorial will
+focus on storing tokens in localStorage and sessionStorage.
+
+
+Step 1 — Building a Login Page
+
+In this step, you’ll create a login page for your application. You’ll start by installing React Router and creating components to represent a full application. Then you’ll render the login page on any route so that your users can login to the application without being redirected to a new page.
+
+
+In the next step, you’ll create a local API that will return a user token.
+You’ll call the API from the Login component and save the token to
+memory on success
+
+Step 2 — Creating a Token API
+
+
+In this step, you’ll create a local API to fetch a user token. You’ll build a
+mock API using Node.js that will return a user token. You’ll then call that
+API from your login page and render the component after you successfully
+retrieve the token. By the end of this step, you’ll have an application with a
+working login page and protected pages that will only be accessible after
+login.
+
+
+In this step you created a local API and a login page for your application.
+You learned how to create a Node server to send a token and how to call the
+server and store the token from a login component. In the next step, you’ll
+learn how to store the user token so that a session will persist across page
+refreshes or tabs.
 
 
 

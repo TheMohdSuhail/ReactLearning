@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 // import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
 // import Instructions from '../Instructions/Instructions.js';
@@ -8,6 +8,10 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 // import Alert from '../Alert/Alert.js';
 // import CartSuccess from '../CartSuccess/CartSuccess.js';
 import { createUseStyles } from 'react-jss';
+import Dashboard from '../Dashboard/Dashboard';
+import Preferences from '../Preferences/Preferences';
+import Login from '../Login/Login';
+
 // import Product from '../Product/Product.js';
 // import Navigation from '../Navigation/Navivation.js';
 // import SaladMake from '../SaladMaker/SaladMaker.js';
@@ -15,9 +19,9 @@ import { createUseStyles } from 'react-jss';
 // import DebugTutorial from '../DebugTutorial/DebugTutorial.js';
 // import FileNamer from '../FileNamer/FileNamer.js';
 // import FormTutorial from '../FormTutorial/FormTutorial.js';
-import Manatee from '../Manatee/Manatee.js';
-import Narwhal from '../Narwhal/Narwhal.js';
-import Whale from '../Whale/Whale.js';
+// import Manatee from '../Manatee/Manatee.js';
+// import Narwhal from '../Narwhal/Narwhal.js';
+// import Whale from '../Whale/Whale.js';
 // import RiverInformation from '../RiverInformation/RiverInformation.js';
 
 // const RiverInformation = lazy(() => import( /* webpackChunkName: "RiverInformation" */ '../RiverInformation/RiverInformation'));
@@ -123,6 +127,11 @@ function App() {
   //   setBird('');
   //  };
 
+  const [token, setToken] = useState();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+   }
 
   return (
 
@@ -217,7 +226,7 @@ function App() {
             ))}
           </ul> */}
 
-      <h1>Marine Mammals</h1>
+      {/* <h1>Marine Mammals</h1>
 
       <BrowserRouter>
         <nav>
@@ -233,6 +242,14 @@ function App() {
           <Route path="/manatee" element={<Manatee />} />
           <Route path="/narwhal" element={<Narwhal />} />
           <Route path="/whale/*" element={<Whale />} />
+        </Routes>
+      </BrowserRouter> */}
+
+      <h1>Application</h1>
+      <BrowserRouter>
+      <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/preferences" element={<Preferences />} />
         </Routes>
       </BrowserRouter>
 
