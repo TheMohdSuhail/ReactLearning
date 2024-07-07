@@ -304,3 +304,15 @@ In this step, you memoized parts of your component. You isolated an
 expensive function from the rest of the component and used the useMemo
 Hook to run the function only when certain dependencies change. In the
 next step, you’ll memoize functions to prevent shallow comparison re-renders
+
+
+# Step 3 — Managing Function Equality Checks with useCallback
+In this step, you’ll handle props that are difficult to compare in JavaScript. React uses strict equality checking when props change. This check determines when to re-run Hooks and when to re-render components. Since JavaScript functions and objects are difficult to compare, there are situations where a prop would be effectively the same, but still trigger a re-render.
+
+You can use the useCallback Hook to preserve a function across re-renders. This will prevent unnecessary re-renders when a parent component recreates a function. By the end of this step, you’ll be able to prevent re-renders using the useCallback Hook.
+
+
+In this step, you preserved functions across re-renders using the useCallbac
+k Hook. You also learned how those functions will retain equality when
+compared as props or dependencies in a Hook.
+

@@ -1,4 +1,4 @@
-import React, {useReducer, useState } from 'react';
+import React, {useCallback, useReducer, useState } from 'react';
 // import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 // import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
 // import Instructions from '../Instructions/Instructions.js';
@@ -75,6 +75,7 @@ const useStyles = createUseStyles({
 //   const userToken = JSON.parse(tokenString);
 //   return userToken?.token
 // }
+
 
 function App() {
 
@@ -154,7 +155,10 @@ function App() {
 
   const [text,setText] = useState('');
   const [showExplanation, toggleExplanation] = useReducer(state => !state, false)
+  // const transformer = item => item.toLowerCase();
+  const transformer = useCallback(item => item.toLowerCase(),[]);
 
+  
   return (
 
     // <div className="container">
@@ -294,7 +298,8 @@ function App() {
         This displays a list of the most common characters.
       </p>
         }
-        <CharacterMap showExplanation={showExplanation} text={text} />
+        <CharacterMap showExplanation={showExplanation} text={text} 
+        transformer={transformer}/>
     </div>
   )
 }
