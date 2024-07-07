@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+// import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 // import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
 // import Instructions from '../Instructions/Instructions.js';
 // import AnimalCard from '../AnimalCard/AnimalCard.js';
@@ -12,6 +12,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import Preferences from '../Preferences/Preferences';
 import Login from '../Login/Login';
 import useToken from './useToken';
+import CharacterMap from '../CharacterMap/CharacterMap';
 
 // import Product from '../Product/Product.js';
 // import Navigation from '../Navigation/Navivation.js';
@@ -145,11 +146,14 @@ function App() {
   //   return <Login setToken={setToken} />
   //  }
 
-  const {token, setToken} = useToken();
+  // const { token, setToken } = useToken();
 
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
+  // if (!token) {
+  //   return <Login setToken={setToken} />;
+  // }
+
+  const [text,setText] = useState('');
+
   return (
 
     // <div className="container">
@@ -262,14 +266,26 @@ function App() {
         </Routes>
       </BrowserRouter> */}
 
-      <h1>Application</h1>
+      {/* <h1>Application</h1>
       <BrowserRouter>
       <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preferences" element={<Preferences />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
 
+      <label htmlFor="text">
+        <p>Add Your Text Here:</p>
+        <textarea
+          id="text"
+          name="text"
+          rows="10"
+          cols="100"
+          onChange={event => setText(event.target.value)}
+        >
+        </textarea>
+      </label>
+        <CharacterMap text={text} />
     </div>
   )
 }

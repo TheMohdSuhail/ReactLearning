@@ -214,3 +214,25 @@ access to the application without a login. It’s a risk, but the convenience
 may be worth it for some applications.
 To convert to localStorage , open useToken.js 
 
+
+### How To Avoid Performance Pitfalls in React with memo, useMemo, and useCallback
+
+In React applications, performance problems can come from network
+latency, overworked APIs, inefficient third-party libraries, and even wellstructured code that works fine until it encounters an unusually large load.
+Identifying the root cause of performance problems can be difficult, but
+many of these problems originate from component re-rendering. Either the
+component re-renders more than expected or the component has a dataheavy operation that can cause each render to be slow. Because of this,
+learning how to prevent unneeded re-renders can help to optimize the
+performance of your React application and create a better experience for
+your user.
+
+In this tutorial, you’ll focus on optimizing performance in React
+components. To explore the problem, you’ll build a component to analyze a
+block of text. You’ll look at how different actions can trigger re-renders and
+how you can use Hooks and memoization to minimize expensive data
+calculations. By the end of this tutorial, you’ll be familiar with many
+performance enhancing Hooks, such as the useMemo and useCallback
+Hook, and the circumstances that will require them.
+
+Step 1 — Preventing Re-renders with memo
+
