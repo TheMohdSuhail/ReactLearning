@@ -11,6 +11,7 @@ import { createUseStyles } from 'react-jss';
 import Dashboard from '../Dashboard/Dashboard';
 import Preferences from '../Preferences/Preferences';
 import Login from '../Login/Login';
+import useToken from './useToken';
 
 // import Product from '../Product/Product.js';
 // import Navigation from '../Navigation/Navivation.js';
@@ -64,15 +65,15 @@ const useStyles = createUseStyles({
 //   ]
 // }
 
-function setToken(userToken){
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
+// function setToken(userToken){
+//   sessionStorage.setItem('token', JSON.stringify(userToken));
+// }
 
-function getToken(){
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
+// function getToken(){
+//   const tokenString = sessionStorage.getItem('token');
+//   const userToken = JSON.parse(tokenString);
+//   return userToken?.token
+// }
 
 function App() {
 
@@ -144,7 +145,7 @@ function App() {
   //   return <Login setToken={setToken} />
   //  }
 
-  const token = getToken();
+  const {token, setToken} = useToken();
 
   if (!token) {
     return <Login setToken={setToken} />;

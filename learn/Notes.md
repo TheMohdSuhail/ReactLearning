@@ -183,3 +183,20 @@ successful. You’ll still need to set some state that will trigger a re-render
 when the data changes. Like most problems in React, there are multiple
 ways to solve it. One of the most elegant and reusable is to create a custom
 Hook.
+
+# Creating a Custom Token Hook
+
+A custom Hook is a function that wraps custom logic. A custom Hook
+usually wraps one or more built-in React Hooks along with custom
+implementations. The primary advantage of a custom Hook is that you can
+remove the implementation logic from the component and you can reuse it
+across multiple components
+By convention, custom Hooks start with the keyword use* .
+
+
+You now have a custom Hook to store your token in sessionStorage . Now
+you can refresh your page and the user will remain logged in. But if you try
+to open the application in another tab, the user will be logged out. sessionS
+torage belongs only to the specific window session. Any data will not be
+available in a new tab and will be lost when the active tab is closed. If you
+want to save the token across tabs, you’ll need to convert to localStorage .
