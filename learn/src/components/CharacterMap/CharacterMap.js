@@ -42,7 +42,7 @@
 
 
 
-import React from "react";
+import React, {memo} from "react";
 import PropTypes from 'prop-types';
 
 function itemize(text){
@@ -59,7 +59,7 @@ function itemize(text){
     .sort((a,b) => b[1] - a[1]);
 }
 
-export default function CharacterMap({text}){
+ function CharacterMap({text}){
     return(
         <div>
             Character Map:
@@ -75,3 +75,5 @@ export default function CharacterMap({text}){
 CharacterMap.protoTypes= {
     text:PropTypes.string.isRequired
 }
+
+export default memo(CharacterMap);

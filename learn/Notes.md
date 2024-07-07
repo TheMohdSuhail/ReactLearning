@@ -234,12 +234,13 @@ calculations. By the end of this tutorial, you’ll be familiar with many
 performance enhancing Hooks, such as the useMemo and useCallback
 Hook, and the circumstances that will require them.
 
-Step 1 — Preventing Re-renders with memo
+# Step 1 — Preventing Re-renders with memo
+
 In this step, you’ll build a text analyzing component. You’ll create an input to take a block of text and a component that will calculate the frequency of letters and symbols. You’ll then create a scenario where the text analyzer performs poorly and you’ll identify the root cause of the performance problem. Finally, you’ll use the React memo function to prevent re-renders on the component when a parent changes, but the props to the child component do not change.
 
-Building a Text Analyzer
+# Building a Text Analyzer
 
-Testing Performance
+# Testing Performance
 
 There are multiple ways to test performance of your application. You can
 add large volumes of text or you can set your browser to use less memory.
@@ -260,3 +261,37 @@ documentation.
 If the component is too slow with the Wikipedia entry, remove some text.
 You want to receive a noticable delay, but you do not want to make it
 unusably slow or to crash your browser.
+
+# Preventing Re-Rendering of Child Components
+
+The itemize function is the root of the delay identified in the last section.
+The function does a lot of work on each entry by looping over the contents
+several times. There are optimizations you can perform directly in the
+function itself, but the focus of this tutorial is how to handle component rerendering when the text does not change. In other words, you will treat the
+itemize function as a function that you do not have access to change. The
+goal will be to run it only when necessary. This will show how to handle
+performance for APIs or third-party libraries that you can’t control.
+To start, you will explore a situation where the parent changes, but the child
+component does not change.
+Inside of App.js , add a paragraph explaining how the component works
+and a button to toggle the information:
+
+
+This presents a problem. Your users shouldn’t encounter a delay when they
+are toggling a small amount of JSX. The delay occurs because when the
+parent component changes—App.js in this situation—the CharacterMap
+component is re-rendering and re-calculating the character data. The text
+prop is identical, but the component still re-renders because React will rerender the entire component tree when a parent changes.
+If you profile the application with the browser’s developer tools, you’ll
+discover that the component re-renders because the parent changes. For a
+review of profiling using the developer tools,
+
+Since CharacterMap contains an expensive function, it should only re-render it when the props change.
+Open CharacterMap.js :
+nano src/components/CharacterMap/CharacterMap.js
+Next, import memo , then pass the component to memo and export the result
+as the default:
+
+
+In this step, you created an application with a long, slow calculation. You learned how parent re-rendering will cause a child component to re-render and how to prevent the re-render using memo. In the next step, you’ll memoize actions in a component so that you only perform actions when specific properties change.
+

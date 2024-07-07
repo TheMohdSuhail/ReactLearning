@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useReducer, useState } from 'react';
 // import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 // import React, {lazy, Suspense,useEffect,useReducer,useRef, useState} from 'react';
 // import Instructions from '../Instructions/Instructions.js';
@@ -153,6 +153,7 @@ function App() {
   // }
 
   const [text,setText] = useState('');
+  const [showExplanation, toggleExplanation] = useReducer(state => !state, false)
 
   return (
 
@@ -285,6 +286,14 @@ function App() {
         >
         </textarea>
       </label>
+      <div>
+        <button onClick={toggleExplanation}>Show Explanation</button>
+      </div>
+      {showExplanation && 
+      <p>
+        This displays a list of the most common characters.
+      </p>
+        }
         <CharacterMap text={text} />
     </div>
   )
