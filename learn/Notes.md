@@ -235,4 +235,28 @@ performance enhancing Hooks, such as the useMemo and useCallback
 Hook, and the circumstances that will require them.
 
 Step 1 — Preventing Re-renders with memo
+In this step, you’ll build a text analyzing component. You’ll create an input to take a block of text and a component that will calculate the frequency of letters and symbols. You’ll then create a scenario where the text analyzer performs poorly and you’ll identify the root cause of the performance problem. Finally, you’ll use the React memo function to prevent re-renders on the component when a parent changes, but the props to the child component do not change.
 
+Building a Text Analyzer
+
+Testing Performance
+
+There are multiple ways to test performance of your application. You can
+add large volumes of text or you can set your browser to use less memory.
+To push the component to a performance bottleneck, copy the Wikipedia
+entry for GNU and paste it in the text box. Your sample may be slightly
+different depending on how the Wikipedia page is edited.
+After pasting the entry into your text box, try typing the additional letter e
+and notice how long it takes to display. There will be a significant pause
+before the character map updates:
+
+If the component is not slow enough and you are using Firefox, Edge, or
+some other browser, add more text until you notice a slowdown.
+If you are using Chrome, you can throttle the CPU inside the performance
+tab. This is a great way to emulate a smartphone or an older piece of
+hardware. For more information, check out the Chrome DevTools
+documentation.
+
+If the component is too slow with the Wikipedia entry, remove some text.
+You want to receive a noticable delay, but you do not want to make it
+unusably slow or to crash your browser.
