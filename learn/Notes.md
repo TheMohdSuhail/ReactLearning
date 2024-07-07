@@ -169,5 +169,17 @@ server and store the token from a login component. In the next step, you’ll
 learn how to store the user token so that a session will persist across page
 refreshes or tabs.
 
+Step 3 — Storing a User Token with sessionStorage and localStorage
 
+In this step, you’ll store the user token. You’ll implement different token storage options and learn the security implications of each approach.
+Finally, you’ll learn how different approaches will change the user
+experience as the user opens new tabs or closes a session.
 
+There’s a little problem now. When you log in, the browser saves the token,
+but you still see the login page
+
+The problem is your code never alerts React that the token retrieval was
+successful. You’ll still need to set some state that will trigger a re-render
+when the data changes. Like most problems in React, there are multiple
+ways to solve it. One of the most elegant and reusable is to create a custom
+Hook.
