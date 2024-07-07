@@ -295,3 +295,12 @@ as the default:
 
 In this step, you created an application with a long, slow calculation. You learned how parent re-rendering will cause a child component to re-render and how to prevent the re-render using memo. In the next step, you’ll memoize actions in a component so that you only perform actions when specific properties change.
 
+
+# Step 2 — Caching Expensive Data Calculations with useMemo
+
+In this step, you’ll store the results of slow data calculations with the useMemo Hook. You’ll then incorporate the useMemo Hook in an existing component and set conditions for data re-calculations. By the end of this step, you’ll be able to cache expensive functions so that they will only run when specific pieces of data change.
+
+In this step, you memoized parts of your component. You isolated an
+expensive function from the rest of the component and used the useMemo
+Hook to run the function only when certain dependencies change. In the
+next step, you’ll memoize functions to prevent shallow comparison re-renders

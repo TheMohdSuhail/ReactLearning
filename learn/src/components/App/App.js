@@ -294,7 +294,7 @@ function App() {
         This displays a list of the most common characters.
       </p>
         }
-        <CharacterMap text={text} />
+        <CharacterMap showExplanation={showExplanation} text={text} />
     </div>
   )
 }
