@@ -265,14 +265,8 @@ unusably slow or to crash your browser.
 # Preventing Re-Rendering of Child Components
 
 The itemize function is the root of the delay identified in the last section.
-The function does a lot of work on each entry by looping over the contents
-several times. There are optimizations you can perform directly in the
-function itself, but the focus of this tutorial is how to handle component rerendering when the text does not change. In other words, you will treat the
-itemize function as a function that you do not have access to change. The
-goal will be to run it only when necessary. This will show how to handle
-performance for APIs or third-party libraries that you can’t control.
-To start, you will explore a situation where the parent changes, but the child
-component does not change.
+The function does a lot of work on each entry by looping over the contents several times. There are optimizations you can perform directly in the function itself, but the focus of this tutorial is how to handle component re-rendering when the text does not change. In other words, you will treat the itemize function as a function that you do not have access to change. The goal will be to run it only when necessary. This will show how to handle performance for APIs or third-party libraries that you can’t control.
+To start, you will explore a situation where the parent changes, but the child component does not change.
 Inside of App.js , add a paragraph explaining how the component works
 and a button to toggle the information:
 
@@ -281,7 +275,7 @@ This presents a problem. Your users shouldn’t encounter a delay when they
 are toggling a small amount of JSX. The delay occurs because when the
 parent component changes—App.js in this situation—the CharacterMap
 component is re-rendering and re-calculating the character data. The text
-prop is identical, but the component still re-renders because React will rerender the entire component tree when a parent changes.
+prop is identical, but the component still re-renders because React will re-render the entire component tree when a parent changes.
 If you profile the application with the browser’s developer tools, you’ll
 discover that the component re-renders because the parent changes. For a
 review of profiling using the developer tools,
@@ -312,7 +306,33 @@ In this step, you’ll handle props that are difficult to compare in JavaScript.
 You can use the useCallback Hook to preserve a function across re-renders. This will prevent unnecessary re-renders when a parent component recreates a function. By the end of this step, you’ll be able to prevent re-renders using the useCallback Hook.
 
 
-In this step, you preserved functions across re-renders using the useCallbac
-k Hook. You also learned how those functions will retain equality when
-compared as props or dependencies in a Hook.
+In this step, you preserved functions across re-renders using the useCallback Hook. You also learned how those functions will retain equality when compared as props or dependencies in a Hook.
+
+### How to Deploy a React Application with Nginx on Ubuntu 20.04
+
+You can quickly deploy React applications to a server using the default
+Create React App build tool. The build script compiles the application into
+a single directory containing all of the JavaScript code, images, styles, and
+HTML files. With the assets in a single location, you can deploy to a web
+server with minimal configuration.
+In this tutorial, you’ll deploy a React application on your local machine to
+an Ubuntu 20.04 server running Nginx. You’ll build an application using
+Create React App, use an Nginx config file to determine where to deploy
+files, and securely copy the build directory and its contents to the server. By
+the end of this tutorial, you’ll be able to build and deploy a React
+application.
+
+Step 1 — Creating a React Project
+In this step, you’ll create an application using Create React App and build a deployable version of the boilerplate app.
+
+
+Now that you have a project that runs successfully in a browser, you need to
+create a production build. Run the create-react-app build script with the
+following:
+npm run build
+This command will compile the JavaScript and assets into the build
+directory. When the command finishes, you will receive some output with
+data about your build. Notice that the filenames include a hash, so your
+output will be slightly different:
+
 

@@ -61,7 +61,7 @@ function itemize(text, transformer){
 }
 
  function CharacterMap({showExplanation,text, transformer}){
-    const character = useMemo(() => itemize(text),transformer);
+    const character = useMemo(() => itemize(text),tra);
     return(
         <div>
 
